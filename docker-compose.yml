@@ -158,8 +158,8 @@ services:
       NGINX_CONTENT_SECURITY_POLICY_HEADER: "default-src 'none'; object-src 'none'; base-uri 'none'; connect-src 'self'; script-src 'self'; script-src-elem 'self' 'unsafe-inline';frame-ancestors 'none'; form-action 'self'; style-src-elem 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self';img-src 'self' blob: data:;"
       NGINX_STRICT_TRANSPORT_SECURITY_HEADER: "max-age=31536000; includeSubDomains;"
     ports:
-      - 127.0.0.1:443:443
-      - 127.0.0.1:9392:9392
+      - 7443:443
+      - 9392:9392
     volumes:
       - nginx_templates_vol:/etc/nginx/templates:ro
       - nginx_certificates_vol:/etc/nginx/certs:ro
