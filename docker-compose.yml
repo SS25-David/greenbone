@@ -149,7 +149,7 @@ services:
     image: nginx
     environment:
       NGINX_HOST: "localhost"
-      NGINX_HTTP_PORT: 9392
+      NGINX_HTTP_PORT: 80
       NGINX_HTTPS_PORT: 443
       NGINX_SERVER_CERT: "/etc/nginx/certs/server.cert.pem"
       NGINX_SERVER_KEY: "/etc/nginx/certs/server.key"
@@ -159,7 +159,7 @@ services:
       NGINX_STRICT_TRANSPORT_SECURITY_HEADER: "max-age=31536000; includeSubDomains;"
     ports:
       - 7443:443
-      - 9392:9392
+      - 9392:80
     volumes:
       - nginx_templates_vol:/etc/nginx/templates:ro
       - nginx_certificates_vol:/etc/nginx/certs:ro
