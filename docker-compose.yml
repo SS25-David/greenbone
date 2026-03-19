@@ -129,7 +129,7 @@ services:
     image: registry.community.greenbone.net/community/gsad:stable
     restart: on-failure
     environment:
-      GSAD_ARGS: "--listen=0.0.0.0 --http-only -f"
+      GSAD_ARGS: "--listen=0.0.0.0 --port=9392 -f"
     volumes:
       - gvmd_socket_vol:/run/gvmd
     depends_on:
