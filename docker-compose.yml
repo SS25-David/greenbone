@@ -158,7 +158,6 @@ services:
       NGINX_CONTENT_SECURITY_POLICY_HEADER: "default-src 'none'; object-src 'none'; base-uri 'none'; connect-src 'self'; script-src 'self'; script-src-elem 'self' 'unsafe-inline';frame-ancestors 'none'; form-action 'self'; style-src-elem 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self';img-src 'self' blob: data:;"
       NGINX_STRICT_TRANSPORT_SECURITY_HEADER: "max-age=31536000; includeSubDomains;"
     networks:
-      - nginx-proxy
       - greenbone_default
     volumes:
       - nginx_templates_vol:/etc/nginx/templates:ro
