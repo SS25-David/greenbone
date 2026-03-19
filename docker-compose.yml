@@ -144,6 +144,8 @@ services:
     volumes:
       - nginx_templates_vol:/mnt/nginx/templates
       - nginx_certificates_vol:/mnt/nginx/certs
+    networks:
+      - nginx-proxy
 
   nginx:
     image: nginx
