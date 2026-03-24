@@ -162,9 +162,6 @@ services:
       gsad:
         condition: service_started
 
-  # Sets log level of openvas to the set LOG_LEVEL within the env
-  # and changes log output to /var/log/openvas instead /var/log/gvm
-  # to reduce likelihood of unwanted log interferences
   configure-openvas:
     image: registry.community.greenbone.net/community/openvas-scanner:stable
     volumes:
@@ -181,7 +178,6 @@ services:
         touch /var/log/openvas/openvas.log
         chmod 666 /var/log/openvas/openvas.log
 
-  # shows logs of openvas
   openvas:
     image: registry.community.greenbone.net/community/openvas-scanner:stable
     restart: on-failure
@@ -212,9 +208,7 @@ services:
       - openvas_log_data_vol:/var/log/openvas
       - gpg_data_vol:/etc/openvas/gnupg
       - notus_data_vol:/var/lib/notus
-    # enable port forwarding when you want to use the http api from your host machine
-    # ports:
-    #   - 127.0.0.1:3000:80
+
     depends_on:
       vulnerability-tests:
         condition: service_healthy
@@ -234,8 +228,8 @@ services:
     restart: on-failure
     hostname: ospd-openvas.local
     cap_add:
-      - NET_ADMIN # for capturing packages in promiscuous mode
-      - NET_RAW # for raw sockets e.g. used for the boreas alive detection
+      - NET_ADMIN 
+      - NET_RAW 
     security_opt:
       - seccomp=unconfined
       - apparmor=unconfined
